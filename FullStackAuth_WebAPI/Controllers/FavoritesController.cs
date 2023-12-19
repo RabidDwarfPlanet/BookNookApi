@@ -22,9 +22,16 @@ namespace FullStackAuth_WebAPI.Controllers
         [HttpGet("myFavorites"), Authorize]
         public IActionResult GetUserReviews()
         {
-            string userId = User.FindFirstValue("id");
-            var favorites = _context.Favorites.Where((r) => r.UserId.Equals(userId));
-            return StatusCode(200, favorites);
+            try
+            { 
+                string userId = User.FindFirstValue("id");
+                var favorites = _context.Favorites.Where((r) => r.UserId.Equals(userId));
+                return StatusCode(200, favorites);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         // POST api/<FavoritesController>
@@ -35,7 +42,7 @@ namespace FullStackAuth_WebAPI.Controllers
             {
                 string userId = User.FindFirstValue("id");
 
-                if (!string.IsNullOrEmpty(userId))
+                if (string.IsNullOrEmpty(userId))
                 {
                     return Unauthorized();
                 }
@@ -52,14 +59,31 @@ namespace FullStackAuth_WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex);
+                return StatusCode(500, ex.Message);
             }
         }
 
         // DELETE api/<FavoritesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{id}"), Authorize]
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                Favorite favorite = _context.Favorites.FirstOrDefault(f => f.Id == id);
+                if(favorite == null) { return NotFound(); }
+                var userId = User.FindFirstValue("id");
+                if(string.IsNullOrEmpty(userId) || favorite.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+                _context.Favorites.Remove(favorite);
+                _context.SaveChanges();
+                return StatusCode(204);
+            } 
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

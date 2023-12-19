@@ -1,4 +1,5 @@
 ﻿using FullStackAuth_WebAPI.Data;
+using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -61,8 +62,25 @@ namespace FullStackAuth_WebAPI.Controllers
 
         // DELETE api/<ReviewsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                Review review = _context.Reviews.FirstOrDefault(r => r.Id == id);
+                if (review == null) { return NotFound(); }
+                var userId = User.FindFirstValue("id");
+                if (string.IsNullOrEmpty(userId) || review.UserId != userId)
+                {
+                    return Unauthorized();
+                }
+                _context.Reviews.Remove(review);
+                _context.SaveChanges();
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
