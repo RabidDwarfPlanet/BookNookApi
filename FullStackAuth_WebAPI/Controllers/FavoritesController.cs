@@ -1,6 +1,9 @@
 ﻿using FullStackAuth_WebAPI.Data;
+using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,19 +19,41 @@ namespace FullStackAuth_WebAPI.Controllers
             _context = context;
         }
         // GET: api/<FavoritesController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("myFavorites"), Authorize]
+        public IActionResult GetUserReviews()
         {
-            return new string[] { "value1", "value2" };
+            string userId = User.FindFirstValue("id");
+            var favorites = _context.Favorites.Where((r) => r.UserId.Equals(userId));
+            return StatusCode(200, favorites);
         }
 
         // POST api/<FavoritesController>
         [HttpPost, Authorize]
-        public IActionResult Post([FromBody] Models.Favorite review)
+        public IActionResult Post([FromBody] Models.Favorite favorite)
         {
-            _context.Favorites.Add(review);
-            _context.SaveChanges();
-            return StatusCode(201, review);
+            try
+            {
+                string userId = User.FindFirstValue("id");
+
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized();
+                }
+
+                favorite.UserId = userId;
+
+                _context.Favorites.Add(favorite);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                _context.SaveChanges();
+                return StatusCode(201, favorite);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
         }
 
         // DELETE api/<FavoritesController>/5
