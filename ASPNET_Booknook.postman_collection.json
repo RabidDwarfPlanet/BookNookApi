@@ -48,7 +48,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"bob\",\r\n    \"password\": \"Qw12345^\"\r\n}",
+							"raw": "{\r\n    \"username\": \"RabidDwarf\",\r\n    \"password\": \"Frogwar2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -106,7 +106,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Im1vbGx5IiwiZW1haWwiOiJtb2xseUBib2IuYm9iIiwiaWQiOiIzMjkyYzJjMy0xZWNhLTRhY2ItOTE5NC0xZGIxYzMzM2I1YzYiLCJleHAiOjE2ODgyMjc4NDcsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.4SYc0aB96VtYXeUJysCPyl25cSeRGJbzohekVyr_nz8",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6ImM1ZGEyNWE0LTUxYzctNDFiZS1hMWRhLTA5MjFiODBhZjBjYyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMwODY3NTgsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.VDOUl5p5fpfDm9XddPmz5PRUPu1ZtvLaS6cyOAimzYw",
 								"type": "text"
 							}
 						],
@@ -378,7 +378,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InJhYmlkIiwiZW1haWwiOiJzeGVAYm9iLmNvbSIsImlkIjoiNTllODUyNjYtODhhNi00NGZiLWFmMDAtNmVkZGYzZWMwMTBkIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTcwMzE3MDQyMCwiaXNzIjoiRnVsbFN0YWNrQXV0aF9XZWJBUEkiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.eyYP9DlKk5A3ix-jYUAPGrF_fOQD-FuBObyVdgnnL_g",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6ImM1ZGEyNWE0LTUxYzctNDFiZS1hMWRhLTA5MjFiODBhZjBjYyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDQwMjMwMDUsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.Dw1ZwiOPOSWto3hsOL1LsXBHBBOiIS_l7bOu9dC4B-0",
 								"type": "text"
 							},
 							{
@@ -446,12 +446,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6ImM1ZGEyNWE0LTUxYzctNDFiZS1hMWRhLTA5MjFiODBhZjBjYyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMxNjc0OTQsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.eiSAS5VgDEQh2hjUy6Pu1U7hVOvZBk3IU-Cj5JP87hI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlJhYmlkRHdhcmYiLCJlbWFpbCI6InN4ZUBleHMuY29tIiwiaWQiOiJiODA3OGQyOC05OTcwLTQ1NDEtYWZmZC0wZmUyYWU3NWZmMmYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzA0MDgwNTMwLCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.yRTACrEK7AzLTNfguRy-MIT14rAtxko408OrhEhJqzo",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://localhost:5001/api/favorites/1",
+							"raw": "https://localhost:5001/api/favorites/4",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -460,7 +460,7 @@
 							"path": [
 								"api",
 								"favorites",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -472,14 +472,15 @@
 			"name": "Book Details",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Get Details",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InJhYmlkIiwiZW1haWwiOiJzeGVAYm9iLmNvbSIsImlkIjoiNTllODUyNjYtODhhNi00NGZiLWFmMDAtNmVkZGYzZWMwMTBkIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTcwMzE3MDQyMCwiaXNzIjoiRnVsbFN0YWNrQXV0aF9XZWJBUEkiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.eyYP9DlKk5A3ix-jYUAPGrF_fOQD-FuBObyVdgnnL_g",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -509,7 +510,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://www.googleapis.com/books/v1/volumes?q=red_rising",
+							"raw": "https://www.googleapis.com/books/v1/volumes?q=Red_rising",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -524,7 +525,7 @@
 							"query": [
 								{
 									"key": "q",
-									"value": "red_rising"
+									"value": "Red_rising"
 								}
 							]
 						}
@@ -537,7 +538,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://www.googleapis.com/books/v1/volumes/nPF9n0SwstMC",
+							"raw": "https://www.googleapis.com/books/v1/volumes/TBgTswEACAAJ",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -548,7 +549,7 @@
 								"books",
 								"v1",
 								"volumes",
-								"nPF9n0SwstMC"
+								"TBgTswEACAAJ"
 							]
 						}
 					},
