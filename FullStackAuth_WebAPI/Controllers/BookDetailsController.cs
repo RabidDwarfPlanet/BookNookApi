@@ -19,19 +19,21 @@ namespace FullStackAuth_WebAPI.Controllers
             _context = context;
         }
         // GET: api/<BookDetailsController>
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/<BookDetailsController>/5
+        
         [HttpGet("{bookId}")]
         public IActionResult Get(string bookId)
         {
             try
             {
-                var favorited = _context.Favorites.Where(f => f.BookId == bookId && f.UserId == User.FindFirstValue("id")).FirstOrDefault();
+                var userId = User.FindFirstValue("id");
+                var favorited = _context.Favorites.Where(f => f.BookId == bookId && f.UserId == userId).FirstOrDefault();
                 bool favoritedByUser = false;
                 if (favorited != null)
                 {
@@ -39,21 +41,24 @@ namespace FullStackAuth_WebAPI.Controllers
                 }
                 var bookReviews = _context.Reviews.Include(r => r.User).Where(r => r.BookId == bookId).ToList();
 
-                if (bookReviews.Count == 0)
+                double? avgRating = null;
+                if (bookReviews.Any())
                 {
-                    return NotFound();
+                    avgRating = bookReviews.Average(r => r.Rating);
                 }
 
                 var bookDetails = new BookDetailsDto
                 {
                     BookId = bookId,
-                    AvgRating = bookReviews.Average(r => r.Rating),
+                    AvgRating = avgRating,
                     Favorite = favoritedByUser,
                     Reviews = bookReviews.Select(r => new ReviewWithUserDto
                     {
+                        Id = r.Id,
                         Text = r.Text,
                         Rating = r.Rating,
-                        Username = r.User.UserName
+                        Username = r.User.UserName,
+                        UserId = r.User.Id
                     }).ToList()
                 };
 

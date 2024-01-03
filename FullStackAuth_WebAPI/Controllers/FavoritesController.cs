@@ -3,6 +3,7 @@ using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Net;
 using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -34,14 +35,18 @@ namespace FullStackAuth_WebAPI.Controllers
             }
         }
 
-        // POST api/<FavoritesController>
-        [HttpPost, Authorize]
-        public IActionResult Post([FromBody] Models.Favorite favorite)
+        // POST api/<FavoritesController>/bookId
+        [HttpPost("{bookId}"), Authorize]
+        public IActionResult Post(string bookId, [FromBody] Models.Favorite favorite)
         {
+            string userId = User.FindFirstValue("id");
+            var favorited = _context.Favorites.Where(f => f.BookId == bookId && f.UserId == userId).FirstOrDefault();
+            if (favorited != null)
+            {
+                return StatusCode(201, favorite);
+            }
             try
             {
-                string userId = User.FindFirstValue("id");
-
                 if (string.IsNullOrEmpty(userId))
                 {
                     return Unauthorized();
